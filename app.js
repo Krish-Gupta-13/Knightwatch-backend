@@ -6,13 +6,13 @@ import cors from "cors"
 import 'dotenv/config'
 
 
+const PORT = process.env.PORT || 5000
 const app = express();
 app.use(cookieParser());
-// app.use(cors({credentials:true, origin:'http://localhost:3000'}));
-app.use(cors({credentials:true, origin:process.env.BASE_URL}));
+app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+// app.use(cors({credentials:true, origin:'https://knightwatch-backend-1.onrender.com'}));
 app.use(express.json());
 app.use('/api', router);
-const PORT = process.env.PORT || 5000
 
 // connecting to mongodb
 mongoose.connect('mongodb+srv://krishgupta:3jplzAjKDutUCrJg@cluster0.eje9wku.mongodb.net/').then(() => {
