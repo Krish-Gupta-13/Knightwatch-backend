@@ -8,13 +8,14 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 app.use(cookieParser());
-app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+app.use(cors({credentials:true, origin:'PORT'}));
+// app.use(cors({credentials:true, origin:'http://localhost:3000'}));
 app.use(express.json());
 app.use('/api', router);
 
 
 // connecting to mongodb
-mongoose.connect("mongodb+srv://krishgupta:3jplzAjKDutUCrJg@cluster0.eje9wku.mongodb.net/").then(() => {
+mongoose.connect(process.env.MONGODB_URL).then(() => {
     app.listen(PORT);
     console.log("Database connected! Listening to port 5000")
 }).catch((err) => {
