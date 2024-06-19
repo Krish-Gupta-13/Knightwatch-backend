@@ -4,7 +4,7 @@ import router from "./routes/user.route.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import 'dotenv/config'
-
+const PORT = process.env.PORT || 5000
 
 const app = express();
 app.use(cookieParser());
@@ -15,7 +15,7 @@ app.use('/api', router);
 
 // connecting to mongodb
 mongoose.connect("mongodb+srv://krishgupta:3jplzAjKDutUCrJg@cluster0.eje9wku.mongodb.net/").then(() => {
-    app.listen(5000);
+    app.listen(PORT);
     console.log("Database connected! Listening to port 5000")
 }).catch((err) => {
     console.log(err)
