@@ -42,7 +42,6 @@ export const Login = async (req, res, next) => {
     catch(err){
         return new Error(err);
     }
-
     if(!existingUser){
         return res.status(400).json({message: "User not found. Signup Please"})  
     }
@@ -134,6 +133,7 @@ export const refreshToken = (req, res, next) => {
             path: '/',
             expires: new Date(Date.now() + 1000*60*60*24), 
             httpOnly: true,
+            secure: true,
             sameSite: "lax"
         });
         req.id = user.id;
