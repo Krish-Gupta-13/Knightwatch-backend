@@ -36,6 +36,7 @@ export const Signup = async(req, res, next) => {
 export const Login = async (req, res, next) => {
     const {email, password} = req.body;
     let existingUser;
+    // console.log(github)
     try{
         existingUser = await User.findOne({email:email}); // finding exsting user
     }

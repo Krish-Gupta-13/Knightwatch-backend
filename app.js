@@ -1,6 +1,7 @@
 import express from "express"
 import mongoose, { mongo } from "mongoose"
-import router from "./routes/user.route.js"
+import userRouter from "./routes/user.route.js"
+import profileRouter from './routes/profile.route.js'
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import 'dotenv/config'
@@ -11,7 +12,8 @@ app.use(cookieParser());
 app.use(cors({credentials:true, origin:process.env.BASE_URL}));
 // app.use(cors({credentials:true, origin:'http://localhost:3000'}));
 app.use(express.json());
-app.use('/api', router);   
+app.use('/api', userRouter); 
+app.use('/api', profileRouter);   
 
 
 // connecting to mongodb
