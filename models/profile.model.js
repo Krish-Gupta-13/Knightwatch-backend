@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 const profileSchema = new Schema({
+    email:{
+        type: String,
+        unique: true
+    },
     location:{
         type: String,
     },
@@ -18,6 +22,9 @@ const profileSchema = new Schema({
     },
     instagram:{
         type: String, 
+    },
+    phone:{
+        type: Number, 
     }
 })
 
