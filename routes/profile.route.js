@@ -3,7 +3,7 @@ import { Edit, GetProfileUser } from "../controllers/profile.controller.js"
 
 const profileRouter = express.Router();
 
-profileRouter.post('/edit', Edit)
+profileRouter.put('/edit', Edit)
 profileRouter.get('/profile', GetProfileUser)
 
 export default profileRouter
